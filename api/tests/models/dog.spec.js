@@ -6,7 +6,6 @@ const dogObject = {
   height: "25 - 58",
   weight: "4 - 14",
   age: 4,
-  isLocal: true,
 };
 
 describe("Dog model", () => {
@@ -88,12 +87,7 @@ describe("Dog model", () => {
       });
     });
     describe("isLocal", () => {
-      it("should be defined as false by default if not assigned", async () => {
-        const { isLocal, ...rest } = dogObject;
-        const dog = await Dog.create({ ...rest });
-        expect(dog.isLocal).to.equal(false);
-      });
-      it("should be assigned properly if provided", async () => {
+      it("should always return true when a element is created in the database (Virtual field)", async () => {
         const dog = await Dog.create(dogObject);
         expect(dog.isLocal).to.equal(true);
       });

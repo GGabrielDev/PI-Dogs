@@ -13,6 +13,7 @@ describe("Temperament model", () => {
   );
   describe("Validators", () => {
     beforeEach(() => Temperament.sync({ force: true }));
+    afterEach(() => Temperament.sync({ force: true }));
     describe("id", () => {
       it("should declare an id when a Temperament is created", async () => {
         const tempe = await Temperament.create(tempeObject);

@@ -4,6 +4,7 @@ const path = require("path");
 const { DB_USER } = process.env || "postgres";
 const { DB_PASSWORD } = process.env || "postgres";
 const { DB_HOST } = process.env || "localhost";
+const temperamentData = require("./assets/temperamentData.json");
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`,
@@ -61,8 +62,17 @@ const Dog_Temperament = sequelize.define(
 Dog.belongsToMany(Temperament, { through: Dog_Temperament });
 Temperament.belongsToMany(Dog, { through: Dog_Temperament });
 
+const temperamentsInitializer = async () => {
+  const { data } = temperamentData;
+  const temperamentArray = data.map((temperament) => {
+    return { name: temperament };
+  });
+  await Temperament.bulkCreate(temperamentArray);
+};
+
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
   checkConnection,
+  temperamentsInitializer,
 };

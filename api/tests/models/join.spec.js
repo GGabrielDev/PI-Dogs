@@ -23,6 +23,9 @@ describe("Joined Models", () => {
     beforeEach(async () => {
       await conn.sync({ force: true });
     });
+    afterEach(async () => {
+      await conn.sync({ force: true });
+    });
     it("should assign a joint temperament when passed a Temperament instance", async () => {
       const dog = await Dog.create(dogObject);
       const tempe = await Temperament.create({ name: temperamentArray[0] });

@@ -37,15 +37,30 @@ module.exports = (sequelize) => {
       },
       age: {
         type: DataTypes.STRING,
+        set(value) {
+          const result = value.toString();
+          this.setDataValue(
+            "age",
+            result.slice(-6) === " years" ? result : result.concat(" years")
+          );
+        },
+      },
+      image: {
+        type: DataTypes.STRING,
+        validate: {
+          isUrl: true,
+        },
       },
       isLocal: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+        type: DataTypes.VIRTUAL,
+        get() {
+          return true;
+        },
       },
       key: {
         type: DataTypes.VIRTUAL,
         get() {
-          return "".concat(this.isLocal ? "L" : "A", "-", this.id);
+          return "".concat("L", "-", this.id);
         },
       },
     },
