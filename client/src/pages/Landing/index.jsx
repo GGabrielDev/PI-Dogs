@@ -8,7 +8,7 @@ import {
   selectDummy,
   selectStatus,
   fillState,
-} from "../features/appSlice";
+} from "../../features/appSlice";
 import {
   TitleFrame,
   TitleDetailsWrapper,
@@ -17,10 +17,10 @@ import {
   TitleButton,
   ButtonWrapper,
   SmallText,
-} from "../components/TitleComponents";
-import { Spinner } from "../components/GenericComponents";
+} from "./components";
+import { Spinner } from "../../components/GenericComponents";
 
-const TitlePage = () => {
+const LandingPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const dummy = useSelector(selectDummy);
@@ -56,4 +56,4 @@ const TitlePage = () => {
   );
 };
 
-export default TitlePage;
+export default LandingPage;

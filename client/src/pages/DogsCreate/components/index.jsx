@@ -125,7 +125,7 @@ const CreateTemperamentTagWrapper = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: white;
-	cursor: pointer;
+  cursor: pointer;
 
   background: ${(props) => props.theme.gray};
   border-radius: 10px;

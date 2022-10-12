@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { STATUS, selectDetails, selectStatus } from "../features/appSlice";
-import { DashboardWrapper, Spinner } from "../components/GenericComponents";
+import { STATUS, selectDetails, selectStatus } from "../../features/appSlice";
+import { DashboardWrapper, Spinner } from "../../components/GenericComponents";
 import {
   DetailsCard,
   DetailsContent,
   DetailsImage,
   DetailsText,
   DetailsTitle,
-} from "../components/DogDetailsPageComponents";
-import noImage from "../assets/no-image.png";
+} from "./components";
+import noImage from "../../assets/no-image.png";
 
 const DogsDetailsPage = () => {
   const status = useSelector(selectStatus);

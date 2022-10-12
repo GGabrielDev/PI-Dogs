@@ -98,7 +98,7 @@ router.get("/:dogId", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, weight, height, age, image, temperaments } = req.body;
+  const { name, weight, height, age, image, temperaments } = req.body.data;
 
   if (
     name === undefined ||
@@ -108,20 +108,20 @@ router.post("/", async (req, res) => {
   )
     return res.status(400).send("The request is missing properties");
   try {
-    const result = await Dog.create(
-      {
-        name,
-        weight,
-        height,
-        age,
-        image,
-        temperaments,
-      },
-      {
-        include: Temperament,
-      }
-    );
-    return res.status(201).json(result);
+    const result = await Dog.create({
+      name,
+      weight,
+      height,
+      age,
+      image,
+      temperaments,
+    });
+    await result.setTemperaments(temperaments.map((value) => value.id));
+    return res
+      .status(201)
+      .json(
+        await Dog.findAll({ where: { id: result.id }, include: [Temperament] })
+      );
   } catch (error) {
     console.log(error);
     return res.status(500).json(error);

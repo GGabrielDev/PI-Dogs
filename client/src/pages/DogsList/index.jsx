@@ -17,8 +17,8 @@ import {
   Footer,
   FooterButton,
   FooterText,
-} from "../components/DogsPageComponents";
-import { DashboardWrapper } from "../components/GenericComponents";
+} from "./components";
+import { DashboardWrapper } from "../../components/GenericComponents";
 import {
   FILTER,
   STATUS,
@@ -26,10 +26,10 @@ import {
   selectStatus,
   selectDogs,
   selectFiltered,
-} from "../features/appSlice";
-import noImage from "../assets/no-image.png";
+} from "../../features/appSlice";
+import noImage from "../../assets/no-image.png";
 
-const DogsPage = () => {
+const DogsListPage = () => {
   const [state, setState] = useState({
     pages: [],
     number: 0,
@@ -157,4 +157,4 @@ const DogsPage = () => {
   );
 };
 
-export default DogsPage;
+export default DogsListPage;

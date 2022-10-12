@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import titleBg from "../assets/title-bg.png";
-import { ButtonCSS } from "./GenericComponents";
+import styled from "styled-components";
+import titleBg from "../../../assets/title-bg.png";
+import { ButtonCSS } from "../../../components/GenericComponents";
 
 export const TitleFrame = styled.div`
   width: 100%;

@@ -22,7 +22,7 @@ import {
   FilterSelect,
   FilterSortWrapper,
   FilterButton,
-} from "./FilterComponents";
+} from "./components";
 
 const Filter = ({ onClick }) => {
   const [state, setState] = useState({
@@ -92,7 +92,9 @@ const Filter = ({ onClick }) => {
             }
             onChange={submitIsLocalFilter}
           >
-            <option value="diabled">Filter by Local Files</option>
+            <option value="deselected" disabled>
+              Filter by Local Files
+            </option>
             <option value="true">Is local</option>
             <option value="false">Is from API</option>
           </FilterSelect>

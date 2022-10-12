@@ -12,8 +12,8 @@ import {
   selectFormError,
   selectStatus,
   selectTemperaments,
-} from "../features/appSlice";
-import { DashboardWrapper } from "../components/GenericComponents";
+} from "../../features/appSlice";
+import { DashboardWrapper } from "../../components/GenericComponents";
 import {
   CreateCard,
   CreateContent,
@@ -25,7 +25,7 @@ import {
   CreateTemperamentTag,
   CreateText,
   CreateTitle,
-} from "../components/DogsCreatePageComponents";
+} from "./components";
 import { useEffect } from "react";
 
 const DogsCreatePage = () => {

@@ -17,7 +17,7 @@ const mainRouteApiSingleFormat = async (apiObject) => {
   return {
     id,
     name,
-    weight: weight.concat("cm"),
+    weight: weight.concat("kg"),
     image,
     temperaments: dbTemperaments,
     isLocal: false,

@@ -23,7 +23,7 @@ import {
   NavSearch,
   NavSeachButton,
   NavTitle,
-} from "./NavBarComponents";
+} from "./components";
 import { SpinnerIcon } from "../GenericComponents";
 import Filter from "../Filter";
 
@@ -59,6 +59,7 @@ const NavigationBar = () => {
 
     navigate("/dashboard/create");
   };
+
   const submitForm = (e) => {
     e.preventDefault();
 

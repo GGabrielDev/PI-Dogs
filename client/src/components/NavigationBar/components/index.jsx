@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonCSS } from "../GenericComponents";
+import { ButtonCSS } from "../../GenericComponents";
 
 export const NavBar = styled.nav`
   position: sticky;
